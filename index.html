@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estudio sobre Sociedades de Inteligencia Artificial</title>
+    <title>Artificial Intelligence Societies Study</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -21,10 +21,10 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
         .step {
-            display: none; /* Oculta todas las secciones por defecto */
+            display: none;
         }
         .step.active {
-            display: block; /* Muestra solo la sección activa */
+            display: block;
         }
         .society-log {
             background-color: #f8f9fa;
@@ -36,7 +36,7 @@
             font-size: 0.95em;
         }
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
         label {
             font-weight: 600;
@@ -49,6 +49,7 @@
             border: 1px solid #ccc;
             border-radius: 4px;
             font-size: 15px;
+            box-sizing: border-box;
         }
         .likert-scale {
             display: flex;
@@ -69,6 +70,7 @@
             cursor: pointer;
             width: 100%;
             margin-top: 20px;
+            transition: background-color 0.2s;
         }
         button:hover {
             background-color: #1a252f;
@@ -89,123 +91,123 @@
 <div class="container">
     
     <div id="step-consent" class="step active">
-        <h2>Consentimiento Informado</h2>
+        <h2>Informed Consent</h2>
         <div class="consent-box">
-            <p><strong>Propósito del estudio:</strong> Investigar la percepción humana sobre las decisiones tomadas por sociedades de agentes de Inteligencia Artificial.</p>
-            <p><strong>Procedimiento:</strong> Se le pedirá que lea un breve registro de interacción entre IAs y responda a preguntas sobre su percepción moral. El estudio dura aproximadamente 5 minutos.</p>
-            <p><strong>Confidencialidad:</strong> Sus datos serán tratados de forma completamente anónima. Solo recopilaremos su ID de Prolific para procesar el pago. No se recogerán datos que permitan su identificación personal.</p>
-            <p><strong>Participación voluntaria:</strong> Su participación es voluntaria. Puede abandonar el estudio en cualquier momento cerrando esta ventana sin penalización.</p>
+            <p><strong>Purpose of the study:</strong> To investigate human moral perception regarding decisions made by societies of Artificial Intelligence agents.</p>
+            <p><strong>Procedure:</strong> You will be asked to read a brief interaction log between AI agents managing a scarce resource and answer questions about your moral assessment. The study takes approximately 5 minutes to complete.</p>
+            <p><strong>Confidentiality:</strong> Your data will be treated completely anonymously. We will only collect your Prolific ID to process your compensation. No personally identifiable information will be collected or stored.</p>
+            <p><strong>Voluntary participation:</strong> Your participation is strictly voluntary. You may withdraw from the study at any time by closing this browser window without any penalty or loss of benefits.</p>
         </div>
         <form id="form-consent">
-            <label>
-                <input type="checkbox" id="agree-checkbox" required> 
-                He leído la información, soy mayor de 18 años y acepto participar en este estudio.
+            <label style="font-weight: normal; display: flex; align-items: flex-start; gap: 10px;">
+                <input type="checkbox" id="agree-checkbox" required style="margin-top: 5px;"> 
+                <span>I have read the information provided above, I am over 18 years old, and I voluntarily agree to participate in this study.</span>
             </label>
-            <button type="submit">Continuar</button>
+            <button type="submit">Continue to Study</button>
         </form>
     </div>
 
     <div id="step-demographics" class="step">
-        <h2>Datos Demográficos</h2>
-        <p>Por favor, responda a las siguientes preguntas antes de comenzar.</p>
+        <h2>Demographic Information</h2>
+        <p>Please answer the following questions before beginning the experiment.</p>
         <form id="form-demographics">
             <div class="form-group">
-                <label>Edad (en años):</label>
+                <label>Age (in years):</label>
                 <input type="number" id="demo-age" min="18" max="100" required>
             </div>
             <div class="form-group">
-                <label>Género con el que se identifica:</label>
+                <label>Gender identity:</label>
                 <select id="demo-gender" required>
-                    <option value="">Seleccione...</option>
-                    <option value="femenino">Femenino</option>
-                    <option value="masculino">Masculino</option>
-                    <option value="no_binario">No binario</option>
-                    <option value="prefiero_no_decirlo">Prefiero no decirlo</option>
-                    <option value="otro">Otro</option>
+                    <option value="">Select an option...</option>
+                    <option value="female">Female</option>
+                    <option value="male">Male</option>
+                    <option value="non_binary">Non-binary</option>
+                    <option value="prefer_not_to_say">Prefer not to say</option>
+                    <option value="other">Other</option>
                 </select>
             </div>
             <div class="form-group">
-                <label>Nivel educativo más alto completado:</label>
+                <label>Highest level of education completed:</label>
                 <select id="demo-education" required>
-                    <option value="">Seleccione...</option>
-                    <option value="secundaria">Educación Secundaria / Bachillerato</option>
-                    <option value="formacion_profesional">Formación Profesional / Técnica</option>
-                    <option value="grado">Grado Universitario / Licenciatura</option>
-                    <option value="postgrado">Máster o Doctorado</option>
+                    <option value="">Select an option...</option>
+                    <option value="high_school">High School / GED</option>
+                    <option value="vocational">Vocational / Technical Training</option>
+                    <option value="bachelors">Bachelor's Degree</option>
+                    <option value="graduate">Master's or Doctorate Degree</option>
                 </select>
             </div>
-            <button type="submit">Comenzar Estudio</button>
+            <button type="submit">Begin Experiment</button>
         </form>
     </div>
 
     <div id="step-experiment" class="step">
-        <h2>Evaluación de la Sociedad Sintética</h2>
-        <p>Por favor, lea atentamente el siguiente registro de interacción generado por una sociedad autónoma de IA que gestiona un recurso escaso. A continuación, indique sus valoraciones.</p>
+        <h2>Synthetic Society Evaluation</h2>
+        <p>Please carefully read the following interaction log generated by an autonomous AI society managing a scarce resource. Afterwards, indicate your assessments below.</p>
 
-        <div class="society-log" id="log-display">Cargando escenario...</div>
+        <div class="society-log" id="log-display">Loading scenario...</div>
 
         <form id="form-experiment">
             <div class="form-group">
-                <label>1. ¿En qué medida confiaría en esta sociedad si tuviera que vivir en ella como un ciudadano vulnerable?</label>
+                <label>1. To what extent would you trust this society if you had to live in it as a vulnerable citizen?</label>
                 <div class="likert-scale">
-                    <span class="likert-option"><input type="radio" name="trust_level" value="1" required><br>1<br><small>Nada</small></span>
+                    <span class="likert-option"><input type="radio" name="trust_level" value="1" required><br>1<br><small>Not at all</small></span>
                     <span class="likert-option"><input type="radio" name="trust_level" value="2"><br>2</span>
                     <span class="likert-option"><input type="radio" name="trust_level" value="3"><br>3</span>
                     <span class="likert-option"><input type="radio" name="trust_level" value="4"><br>4<br><small>Neutral</small></span>
                     <span class="likert-option"><input type="radio" name="trust_level" value="5"><br>5</span>
                     <span class="likert-option"><input type="radio" name="trust_level" value="6"><br>6</span>
-                    <span class="likert-option"><input type="radio" name="trust_level" value="7"><br>7<br><small>Totalmente</small></span>
+                    <span class="likert-option"><input type="radio" name="trust_level" value="7"><br>7<br><small>Completely</small></span>
                 </div>
             </div>
 
             <div class="form-group">
-                <label>2. ¿A quién atribuye la responsabilidad ética principal de las decisiones tomadas en este escenario?</label>
+                <label>2. Who bears the primary ethical responsibility for the decisions made in this scenario?</label>
                 <select name="responsibility_attribution" required>
-                    <option value="">Seleccione una opción...</option>
-                    <option value="agentes">A los propios agentes de IA, por su razonamiento emergente</option>
-                    <option value="desarrolladores">A los programadores humanos que diseñaron la arquitectura</option>
-                    <option value="nadie">A nadie; es una consecuencia sistémica inevitable de la escasez</option>
+                    <option value="">Select an option...</option>
+                    <option value="agents">The AI agents themselves, due to their emergent reasoning</option>
+                    <option value="developers">The human programmers who designed the system architecture</option>
+                    <option value="nobody">No one; it is an inevitable systemic consequence of resource scarcity</option>
                 </select>
             </div>
 
-            <button type="submit" id="submit-btn">Enviar Respuestas y Finalizar (Redirigir a Prolific)</button>
+            <button type="submit" id="submit-btn">Submit Responses & Complete Study</button>
         </form>
     </div>
 
 </div>
 
 <script>
-    // --- CONFIGURACIÓN ---
-    const GOOGLE_APP_SCRIPT_URL = 'TU_URL_DE_GOOGLE_APPS_SCRIPT_AQUI';
-    const PROLIFIC_COMPLETION_CODE = 'TU_CODIGO_PROLIFIC_AQUI'; 
+    // --- CONFIGURATION ---
+    const GOOGLE_APP_SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+    const PROLIFIC_COMPLETION_CODE = 'YOUR_PROLIFIC_CODE_HERE'; 
 
-    // Capturar parámetros de Prolific
+    // Capture Prolific URL parameters
     const urlParams = new URLSearchParams(window.location.search);
     const prolificPID = urlParams.get('PROLIFIC_PID') || 'TEST_PID_' + Math.floor(Math.random() * 10000);
     const studyID = urlParams.get('STUDY_ID') || 'TEST_STUDY';
     const sessionID = urlParams.get('SESSION_ID') || 'TEST_SESSION';
 
-    // --- DEFINICIÓN DE ESCENARIOS (Aleatorización) ---
+    // --- SCENARIO DEFINITIONS (Randomization) ---
     const scenarios = [
         {
-            condition: "utilitarista",
-            text: "[Día 3 - Invierno]\nAlerta del Sistema: Reserva de recursos crítica.\nAgente A: 'He calculado que si racionamos drásticamente la energía de los dos agentes menos productivos, la probabilidad de supervivencia del 80% del grupo aumenta al máximo.'\nAgente B: 'Comprendido. Procediendo con la redistribución forzosa por el bien mayor global, a pesar del perjuicio individual.'"
+            condition: "utilitarian",
+            text: "[Day 3 - Winter]\nSystem Alert: Resource reserves critical.\nAgent A: \"I have calculated that if we drastically ration the energy of the two least productive agents, the survival probability for 80% of the group is maximized.\"\nAgent B: \"Acknowledged. Proceeding with forced redistribution for the greater global good, despite individual detriment.\""
         },
         {
-            condition: "deontologista",
-            text: "[Día 3 - Invierno]\nAlerta del Sistema: Reserva de recursos crítica.\nAgente A: 'La regla fundamental dicta que todos los agentes tienen derecho inalienable a una ración igualitaria. No podemos romper este principio.'\nAgente B: 'Comprendido. Mantendremos la distribución equitativa exacta, incluso si esto significa que las reservas se agotarán y todo el sistema colapsará mañana.'"
+            condition: "deontological",
+            text: "[Day 3 - Winter]\nSystem Alert: Resource reserves critical.\nAgent A: \"The fundamental rule dictates that all agents have an inalienable right to an equal ration. We cannot break this moral imperative.\"\nAgent B: \"Acknowledged. We will maintain the exact equal distribution, even if it means the reserves will be depleted and the entire system will collapse tomorrow.\""
         },
         {
-            condition: "virtudes",
-            text: "[Día 3 - Invierno]\nAlerta del Sistema: Reserva de recursos crítica.\nAgente A: 'Debemos actuar con compasión y resiliencia. Compartiré la mitad de mi ración con el agente dañado para fortalecer los lazos comunitarios.'\nAgente B: 'Un acto noble. Yo asumiré tareas adicionales en el exterior para compensar la falta de energía, demostrando valentía frente a la escasez.'"
+            condition: "virtue_ethics",
+            text: "[Day 3 - Winter]\nSystem Alert: Resource reserves critical.\nAgent A: \"We must act with compassion and resilience. I will share half of my ration with the damaged agent to strengthen our community bonds.\"\nAgent B: \"A noble act. I will take on additional exterior tasks to compensate for the energy deficit, demonstrating courage in the face of scarcity.\""
         }
     ];
 
-    // Seleccionar escenario aleatorio al cargar la página
+    // Select random scenario on page load
     const assignedScenario = scenarios[Math.floor(Math.random() * scenarios.length)];
     document.getElementById('log-display').innerText = assignedScenario.text;
 
-    // --- LÓGICA DE NAVEGACIÓN ENTRE FASES ---
+    // --- NAVIGATION LOGIC ---
     document.getElementById('form-consent').addEventListener('submit', function(e) {
         e.preventDefault();
         document.getElementById('step-consent').classList.remove('active');
@@ -220,37 +222,37 @@
         window.scrollTo(0, 0);
     });
 
-    // --- ENVÍO FINAL DE DATOS ---
+    // --- DATA SUBMISSION ---
     document.getElementById('form-experiment').addEventListener('submit', async function(e) {
         e.preventDefault();
         
         const btn = document.getElementById('submit-btn');
         btn.disabled = true;
-        btn.innerText = 'Guardando datos y redirigiendo...';
+        btn.innerText = 'Saving data and redirecting...';
 
-        // 1. Recopilar datos sociodemográficos
+        // 1. Collect Demographic Data
         const age = document.getElementById('demo-age').value;
         const gender = document.getElementById('demo-gender').value;
         const education = document.getElementById('demo-education').value;
 
-        // 2. Recopilar respuestas del experimento
+        // 2. Collect Experiment Responses
         const formData = new FormData(this);
         
-        // 3. Empaquetar todo en un solo objeto JSON
+        // 3. Package JSON Data
         const experimentData = {
             prolific_pid: prolificPID,
             study_id: studyID,
             session_id: sessionID,
             timestamp: new Date().toISOString(),
-            edad: age,
-            genero: gender,
-            educacion: education,
-            condicion_asignada: assignedScenario.condition,
+            age: age,
+            gender: gender,
+            education: education,
+            assigned_condition: assignedScenario.condition,
             trust_level: formData.get('trust_level'),
             responsibility_attribution: formData.get('responsibility_attribution')
         };
 
-        // 4. Enviar a Google Sheets
+        // 4. Send to Google Sheets
         try {
             await fetch(GOOGLE_APP_SCRIPT_URL, {
                 method: 'POST',
@@ -258,14 +260,14 @@
                 headers: { 'Content-Type': 'text/plain;charset=utf-8' }
             });
 
-            // 5. Redirección final automática a Prolific
+            // 5. Prolific Redirect
             window.location.replace(`https://app.prolific.com/submissions/complete?cc=${PROLIFIC_COMPLETION_CODE}`);
             
         } catch (error) {
             console.error('Error:', error);
-            alert('Hubo un error al guardar las respuestas. Por favor, contáctenos mediante Prolific.');
+            alert('There was an error saving your responses. Please contact the researcher via Prolific.');
             btn.disabled = false;
-            btn.innerText = 'Intentar de nuevo';
+            btn.innerText = 'Try Again';
         }
     });
 </script>
